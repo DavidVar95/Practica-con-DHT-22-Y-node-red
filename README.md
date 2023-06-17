@@ -168,38 +168,53 @@ TempAndHumidity  data = dhtSensor.getTempAndHumidity();
 ```
 2. Realizar la conecion del circuito
 
-![](https://github.com/DavidVar95/Practica_Nivel_de_agua/blob/main/Captura%20de%20pantalla%202023-06-10%2012.58.28.png?raw=true)
+![](https://github.com/DavidVar95/Practica-con-DHT-22-Y-node-red/blob/main/Captura%20de%20pantalla%202023-06-16%2021.14.27.png?raw=true)
+
+3. Se realiza el programa en bloques para node red
+
+![](https://github.com/DavidVar95/Practica-con-DHT-22-Y-node-red/blob/main/Captura%20de%20pantalla%202023-06-16%2021.53.14.png?raw=true)
+
+4. colocamos un bloque mqttin y lo vinculamos con el programa en WOKWI
+
+![](https://github.com/DavidVar95/Practica-con-DHT-22-Y-node-red/blob/main/Captura%20de%20pantalla%202023-06-16%2022.01.30.png?raw=truee)
+
+5. Configurar el bloque con el puerto mqtt con el ip 44.195.202.69 como se muestra en la imagen
+
+![](https://github.com/DavidVar95/Practica-con-DHT-22-Y-node-red/blob/main/Captura%20de%20pantalla%202023-06-16%2022.05.45.png?raw=true)
+
+6. Colocar el bloque json y configurarlo como se muestra en la imagen
+
+![](https://github.com/DavidVar95/Practica-con-DHT-22-Y-node-red/blob/main/Captura%20de%20pantalla%202023-06-16%2022.07.58.png?raw=true)
+
+7. Colocamos dos bloques function y lo configuramos con el siguente codigo
+
+```
+msg.payload = msg.payload.TEMPERATURA;
+msg.topic = "TEMPERATURA";
+return msg;
+
+```
+```
+msg.payload = msg.payload.HUMEDAD;
+msg.topic = "HUMEDAD";
+return msg;
+
+```
+
+# Resultados
 
 
-### Instrucciónes de operación
-
-1. Iniciar simulador.
-2. Selecciona el sensor"HC-SR04" Y modifica la distancia.
-3. los led enciende deacuerdo el aumento de distancia 
-
-## Resultados
-
-cuando la distancia es de 0 a 2 ningun led enciende.
-
-![](https://github.com/DavidVar95/Practica_Nivel_de_agua/blob/main/Captura%20de%20pantalla%202023-06-10%2013.06.29.png?raw=true)
+![](https://github.com/DavidVar95/Practica-con-DHT-22-Y-node-red/blob/main/Captura%20de%20pantalla%202023-06-16%2022.13.58.png?raw=true)
 
 
-led 1 enciande con el nivel de 3 a 10
+En el node-red podememos ver los datos que esta tomando el ESP32
 
 
-![](https://github.com/DavidVar95/Practica_Nivel_de_agua/blob/main/Captura%20de%20pantalla%202023-06-10%2013.08.14.png?raw=true))
+![](https://github.com/DavidVar95/Practica-con-DHT-22-Y-node-red/blob/main/Captura%20de%20pantalla%202023-06-16%2022.19.09.png?raw=true))
 
-led 1 y 2 enciande con el nivel de 11 a 20
+![](https://github.com/DavidVar95/Practica-con-DHT-22-Y-node-red/blob/main/Captura%20de%20pantalla%202023-06-16%2022.19.19.png?raw=true))
 
-![](https://github.com/DavidVar95/Practica_Nivel_de_agua/blob/main/Captura%20de%20pantalla%202023-06-10%2013.10.56.png?raw=true))
-
-led 1,2 y 3 enciande con el nivel de 21 a 30
-
-![](https://github.com/DavidVar95/Practica_Nivel_de_agua/blob/main/Captura%20de%20pantalla%202023-06-10%2013.12.48.png?raw=true))
-
-led 1,2,3 y 4 enciande con el nivel de 31 o mas
-
-![](https://github.com/DavidVar95/Practica_Nivel_de_agua/blob/main/Captura%20de%20pantalla%202023-06-10%2013.15.24.png?raw=true))
+![](https://github.com/DavidVar95/Practica-con-DHT-22-Y-node-red/blob/main/Captura%20de%20pantalla%202023-06-16%2022.19.29.png?raw=true))
 
 # Créditos
 
