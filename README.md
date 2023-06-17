@@ -1,1 +1,0 @@
-# Practica-con-DHT-22-Y-node-red
